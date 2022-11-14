@@ -6,7 +6,6 @@ module.exports.cashSchema = Joi.object({
         to: Joi.string().required(),
         amount: Joi.number().required().min(0),
         description: Joi.string().required(),
-        description: Joi.string().required()
     }).required()
 });
 

@@ -13,10 +13,9 @@ const CashSchema = new Schema({
     },
     description: String,
     balance: Number,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
+    author: String,
+    TransactionID: Number,
+
 
 });
 

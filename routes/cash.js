@@ -8,14 +8,14 @@ const Cash = require('../models/cash');
 
 router.route('/')
     .get(catchAsync(cash.index))
-    .post(isLoggedIn, validateCash, catchAsync(cash.createCash))
+    //.post(isLoggedIn, validateCash, catchAsync(cash.createCash))
+    
+    .post(catchAsync(cash.inCash));
 
-router.get('/new', isLoggedIn, cash.renderNewForm)
+router.route('/outCash').post(catchAsync(cash.outCash));
+router.get('/inCash', cash.renderNewForm);
+router.get('/outCash', cash.renderNewOutForm);
+// router.post('/outCash', catchAsync(cash.inCash));
 
-router.route('/:id')
-    .put(isLoggedIn, validateCash, catchAsync(cash.updateCash))
-    .delete(isLoggedIn, catchAsync(cash.deleteCash));
-
-router.get('/:id/edit', isLoggedIn, catchAsync(cash.renderEditForm))
 
 module.exports = router;
